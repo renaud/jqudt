@@ -1,4 +1,4 @@
-package com.github.jqudt.onto.units;
+package ch.epfl.bbp.ontology.unit;
 
 import com.github.jqudt.Unit;
 import com.github.jqudt.onto.UnitFactory;
@@ -808,7 +808,30 @@ public class QudtUnits {
 	public static final Unit Week = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/Week");
 	public static final Unit Month = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/Month");
 	public static final Unit Year = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/Year");
-
+	public static final Unit DayOld = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/DayOld");
+	public static final Unit WeekOld = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/WeekOld");
+	public static final Unit MonthOld = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/MonthOld");
+	public static final Unit YearOld = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/YearOld");
+	
+	public static final Unit SecTime = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/SecTime");
+	public static final Unit BBP_PerSecond = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/PerSecond");
+	public static final Unit BBP_InternationalUnitPerLiter = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/InternationalUnitPerLiter");
+	
+	public static final Unit Fold = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/Fold");
+	public static final Unit Times = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/Times");
+	public static final Unit InternationalUnitPerMilliLiter = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/InternationalUnitPerMilliLiter");
+	public static final Unit MicroLiter = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/MicroLiter");
+	public static final Unit LiterPerMinute = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/LiterPerMinute");
+	public static final Unit PerMinute = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/PerMinute");
+	public static final Unit PerHour = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/PerHour");
+	public static final Unit PerDay = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/PerDay");
+	public static final Unit PerWeek = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/PerWeek");
+	public static final Unit PerMonth = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/PerMonth");
+	public static final Unit PerYear = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/PerYear");
+	public static final Unit GramPerLiter = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/GramPerLiter");
+	public static final Unit GramPerMilliliter = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/GramPerMilliliter");
+	public static final Unit GramPerDeciliter = UnitFactory.getInstance().getUnit("http://bluebrain.epfl.ch/ontology/units/GramPerDeciliter");
+	
 	public static final Unit[] ALL_UNITS = {
     Abampere,
 	AbamperePerSquareCentimeter,
@@ -1611,6 +1634,34 @@ public class QudtUnits {
 	Week,
 	Month,
 	Year,
+	DayOld,
+	WeekOld,
+	MonthOld,
+	YearOld,
+	
+	SecTime,
+	BBP_PerSecond,
+	BBP_InternationalUnitPerLiter,
+
+	Fold,
+	Times,
+	InternationalUnitPerMilliLiter,
+	MicroLiter,
+	LiterPerMinute,
+	PerMinute,
+	PerHour,
+	PerDay,
+	PerWeek,
+	PerMonth,
+	PerYear,
+	GramPerLiter,
+	GramPerMilliliter,
+	GramPerDeciliter,
+
+
+	
+	
+	
 	};
 	
 }

@@ -79,7 +79,7 @@ public class UnitFactory {
 				if (statement.getPredicate().equals(QUDT.SYMBOL)) {
 					unit.setSymbol(statement.getObject().stringValue());
 				} else if (statement.getPredicate().equals(QUDT.ABBREVIATION)) {
-					unit.addAbbreviation(statement.getObject().stringValue());
+					unit.setAbbreviation(statement.getObject().stringValue());
 				} else if (statement.getPredicate().equals(QUDT.CONVERSION_OFFSET)) {
 					multiplier.setOffset(Double.parseDouble(statement.getObject().stringValue()));
 				} else if (statement.getPredicate().equals(QUDT.CONVERSION_MULTIPLIER)) {
@@ -91,7 +91,7 @@ public class UnitFactory {
 					if (type instanceof org.openrdf.model.URI) {
 						org.openrdf.model.URI typeURI = (org.openrdf.model.URI)type;
 						if (!shouldBeIgnored(typeURI)) {
-							unit.addType(new URI(typeURI.stringValue()));
+							unit.setType(new URI(typeURI.stringValue()));
 						}
 					}
 				} else {

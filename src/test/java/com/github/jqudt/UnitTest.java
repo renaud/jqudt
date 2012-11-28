@@ -26,10 +26,10 @@ public class UnitTest {
 	public void testType() throws Exception {
 		Unit unit = new Unit();
 		URI resource = new URI("http://qudt.org/vocab/unit#Kelvin");
-		Assert.assertTrue(unit.getTypes().isEmpty());
-		unit.addType(resource);
-		Assert.assertNotNull(unit.getTypes().get(0));
-		Assert.assertEquals(resource, unit.getTypes().get(0));
+		Assert.assertNull(unit.getType());
+		unit.setType(resource);
+		Assert.assertNotNull(unit.getType());
+		Assert.assertEquals(resource, unit.getType());
 	}
 
 	@Test
@@ -44,10 +44,10 @@ public class UnitTest {
 	@Test
 	public void testAbbreviation() throws Exception {
 		Unit unit = new Unit();
-		Assert.assertTrue(unit.getAbbreviations().isEmpty());
-		unit.addAbbreviation("nM");
-		Assert.assertNotNull(unit.getAbbreviations().get(0));
-		Assert.assertEquals("nM", unit.getAbbreviations().get(0));
+		Assert.assertNull(unit.getAbbreviation());
+		unit.setAbbreviation("nM");
+		Assert.assertNotNull(unit.getAbbreviation());
+		Assert.assertEquals("nM", unit.getAbbreviation());
 	}
 
 	@Test

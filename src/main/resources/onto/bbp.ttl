@@ -7,32 +7,194 @@
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix bbp:     <http://bluebrain.epfl.ch/ontology/units/> .
 
+
+# WEEK/MONTH/YEAR and -OLD #####################################
 bbp:Week
  rdf:type qudt:TimeUnit ;
  rdfs:label "Week"^^xsd:string ;
  qudt:abbreviation "week"^^xsd:string ;
- qudt:conversionMultiplier
-  604800 ;
- qudt:conversionOffset
-  "0.0"^^xsd:double ;
+ qudt:conversionMultiplier 604800 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
  qudt:symbol "week"^^xsd:string .
-
 bbp:Month
  rdf:type qudt:TimeUnit ;
  rdfs:label "Month"^^xsd:string ;
  qudt:abbreviation "month"^^xsd:string ;
- qudt:conversionMultiplier
-  18144000 ;
- qudt:conversionOffset
-  "0.0"^^xsd:double ;
+ qudt:conversionMultiplier 18144000 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
  qudt:symbol "month"^^xsd:string .
-
 bbp:Year
  rdf:type qudt:TimeUnit ;
  rdfs:label "Year"^^xsd:string ;
  qudt:abbreviation "year"^^xsd:string ;
- qudt:conversionMultiplier
-  31536000 ;
- qudt:conversionOffset
-  "0.0"^^xsd:double ;
+ qudt:conversionMultiplier 31536000 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
  qudt:symbol "year"^^xsd:string .
+
+bbp:DayOld
+ rdf:type qudt:TimeUnit ;
+ rdfs:label "DayOld"^^xsd:string ;
+ qudt:abbreviation "day-old"^^xsd:string ;
+ qudt:conversionMultiplier 86400 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "day-old"^^xsd:string .
+bbp:WeekOld
+ rdf:type qudt:TimeUnit ;
+ rdfs:label "WeekOld"^^xsd:string ;
+ qudt:abbreviation "week-old"^^xsd:string ;
+ qudt:conversionMultiplier 604800 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "week-old"^^xsd:string .
+bbp:MonthOld
+ rdf:type qudt:TimeUnit ;
+ rdfs:label "MonthOld"^^xsd:string ;
+ qudt:abbreviation "month-old"^^xsd:string ;
+ qudt:conversionMultiplier 18144000 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "month-old"^^xsd:string .
+bbp:YearOld
+ rdf:type qudt:TimeUnit ;
+ rdfs:label "YearOld"^^xsd:string ;
+ qudt:abbreviation "year-old"^^xsd:string ;
+ qudt:conversionMultiplier 31536000 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "year-old"^^xsd:string .
+
+
+# SYNONYMS ##################################################
+
+bbp:SecTime
+ # synonym for #SecondTime
+ rdf:type qudt:TimeUnit ;
+ rdfs:label "Sec"^^xsd:string ;
+ qudt:abbreviation "sec"^^xsd:string ;
+ qudt:conversionMultiplier 1 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "sec"^^xsd:string .
+
+bbp:PerSecond
+ # syn /sec
+ rdf:type qudt:FrequencyUnit ;
+ rdfs:label "Inverse Second"^^xsd:string ;
+ qudt:abbreviation "/sec"^^xsd:string ;
+ qudt:conversionMultiplier 1 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "/sec"^^xsd:string .
+
+bbp:InternationalUnitPerLiter
+ # syn U/L
+ rdf:type qudt:SerumOrPlasmaLevelUnit ;
+ rdfs:label "U/L"^^xsd:string ;
+ qudt:abbreviation "U/L"^^xsd:string ;
+ qudt:conversionMultiplier 1 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "U/L"^^xsd:string .
+
+
+# ADDITIONAL UNITS ##################################################
+
+bbp:Fold
+ # 10-fold
+ rdf:type qudt:Dimensionless ;
+ rdfs:label "Fold"^^xsd:string ;
+ qudt:abbreviation "fold"^^xsd:string .
+ 
+bbp:Times
+ # 10-times
+ rdf:type qudt:Dimensionless ;
+ rdfs:label "Time"^^xsd:string ;
+ qudt:abbreviation "time"^^xsd:string .
+
+
+bbp:InternationalUnitPerMilliLiter
+ rdf:type qudt:SerumOrPlasmaLevelUnit ;
+ rdfs:label "International Unit per Milliliter"^^xsd:string ;
+ qudt:abbreviation "U/mL"^^xsd:string ;
+ qudt:conversionMultiplier 1 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "U/mL"^^xsd:string .
+
+bbp:MicroLiter
+ rdf:type qudt:VolumeUnit ;
+ rdfs:label "MicroLiter"^^xsd:string ;
+ qudt:abbreviation "microliter"^^xsd:string ;
+ qudt:conversionMultiplier 1 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "µl"^^xsd:string .
+
+bbp:LiterPerMinute
+ rdf:type qudt:VolumePerTimeUnit ;
+ rdfs:label "LiterPerMinute"^^xsd:string ;
+ qudt:abbreviation "liters/min"^^xsd:string ;
+ qudt:conversionMultiplier 0.0000166666666667 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "l/min"^^xsd:string .
+
+
+bbp:PerMinute
+ rdf:type qudt:FrequencyUnit ;
+ rdfs:label "Inverse Minute"^^xsd:string ;
+ qudt:abbreviation "/min"^^xsd:string ;
+ qudt:conversionMultiplier 60 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "/min"^^xsd:string .
+bbp:PerHour
+ rdf:type qudt:FrequencyUnit ;
+ rdfs:label "Inverse Hour"^^xsd:string ;
+ qudt:abbreviation "/h"^^xsd:string ;
+ qudt:conversionMultiplier 3600 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "/h"^^xsd:string .
+bbp:PerDay
+ rdf:type qudt:FrequencyUnit ;
+ rdfs:label "Inverse Day"^^xsd:string ;
+ qudt:abbreviation "/day"^^xsd:string ;
+ qudt:conversionMultiplier 86400 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "/day"^^xsd:string .
+bbp:PerWeek
+ rdf:type qudt:FrequencyUnit ;
+ rdfs:label "Inverse Week"^^xsd:string ;
+ qudt:abbreviation "/week"^^xsd:string ;
+ qudt:conversionMultiplier 604800 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "/week"^^xsd:string .
+bbp:PerMonth
+ rdf:type qudt:FrequencyUnit ;
+ rdfs:label "Inverse Month"^^xsd:string ;
+ qudt:abbreviation "/month"^^xsd:string ;
+ qudt:conversionMultiplier 18144000 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "/month"^^xsd:string .
+bbp:PerYear
+ rdf:type qudt:FrequencyUnit ;
+ rdfs:label "Inverse Year"^^xsd:string ;
+ qudt:abbreviation "/year"^^xsd:string ;
+ qudt:conversionMultiplier 31536000 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "/year"^^xsd:string .
+ 
+bbp:GramPerLiter
+ rdf:type qudt:MassPerVolumeUnit ;
+ rdfs:label "Gram Per Liter"^^xsd:string ;
+ qudt:abbreviation "g/liter"^^xsd:string ;
+ qudt:conversionMultiplier 1 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "g/l"^^xsd:string . 
+bbp:GramPerMilliliter
+ rdf:type qudt:MassPerVolumeUnit ;
+ rdfs:label "Gram Per Milliliter"^^xsd:string ;
+ qudt:abbreviation "g/ml"^^xsd:string ;
+ qudt:conversionMultiplier 1000 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "g/ml"^^xsd:string . 
+bbp:GramPerDeciliter
+ rdf:type qudt:MassPerVolumeUnit ;
+ rdfs:label "Gram Per Deciliter"^^xsd:string ;
+ qudt:abbreviation "g/dl"^^xsd:string ;
+ qudt:conversionMultiplier 10 ;
+ qudt:conversionOffset "0.0"^^xsd:double ;
+ qudt:symbol "g/dl"^^xsd:string . 
+
+#bbp:PerMilliliter 
+#bbp:PerKilo 

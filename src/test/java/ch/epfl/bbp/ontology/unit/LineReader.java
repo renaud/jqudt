@@ -1,4 +1,4 @@
-package com.github.jqudt.onto.units;
+package ch.epfl.bbp.ontology.unit;
 
 import java.io.BufferedReader;
 import java.io.Closeable;

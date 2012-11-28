@@ -42,7 +42,7 @@ public class Quantity {
 
 		if (unit.getResource().equals(newUnit.getResource())) return this; // nothing to be done
 
-		if (!unit.getTypes().get(0).equals(newUnit.getTypes().get(0)))
+		if (!unit.getType().equals(newUnit.getType()))
 			throw new IllegalAccessException(
 				"The new unit does not have the same parent type"
 			);
