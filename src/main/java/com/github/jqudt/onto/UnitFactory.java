@@ -36,6 +36,7 @@ public class UnitFactory {
 			OntoReader.read(repos, "qudt");
 			OntoReader.read(repos, "quantity");
 			OntoReader.read(repos, "ops.ttl");
+			OntoReader.read(repos, "bbp.ttl");
 		} catch (Exception exception) {
 			throw new IllegalStateException(
 				"Could not load the QUDT ontologies: " + exception.getMessage(), exception
@@ -78,7 +79,7 @@ public class UnitFactory {
 				if (statement.getPredicate().equals(QUDT.SYMBOL)) {
 					unit.setSymbol(statement.getObject().stringValue());
 				} else if (statement.getPredicate().equals(QUDT.ABBREVIATION)) {
-					unit.setAbbreviation(statement.getObject().stringValue());
+					unit.addAbbreviation(statement.getObject().stringValue());
 				} else if (statement.getPredicate().equals(QUDT.CONVERSION_OFFSET)) {
 					multiplier.setOffset(Double.parseDouble(statement.getObject().stringValue()));
 				} else if (statement.getPredicate().equals(QUDT.CONVERSION_MULTIPLIER)) {
@@ -90,7 +91,7 @@ public class UnitFactory {
 					if (type instanceof org.openrdf.model.URI) {
 						org.openrdf.model.URI typeURI = (org.openrdf.model.URI)type;
 						if (!shouldBeIgnored(typeURI)) {
-							unit.setType(new URI(typeURI.stringValue()));
+							unit.addType(new URI(typeURI.stringValue()));
 						}
 					}
 				} else {

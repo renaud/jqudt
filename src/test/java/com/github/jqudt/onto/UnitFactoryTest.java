@@ -27,10 +27,10 @@ public class UnitFactoryTest {
 		Assert.assertNotNull(unit);
 		Assert.assertEquals("Kelvin", unit.getLabel());
 		Assert.assertEquals("K", unit.getSymbol());
-		Assert.assertEquals("K", unit.getAbbreviation());
+		Assert.assertEquals("K", unit.getAbbreviations().get(0));
 		Assert.assertEquals(1, unit.getMultiplier().getMultiplier(), 0.01);
 		Assert.assertEquals(0, unit.getMultiplier().getOffset(), 0.01);
-		Assert.assertEquals("http://qudt.org/schema/qudt#TemperatureUnit", unit.getType().toString());
+		Assert.assertEquals("http://qudt.org/schema/qudt#TemperatureUnit", unit.getTypes().get(0).toString());
 	}
 
 	@Test
@@ -48,10 +48,10 @@ public class UnitFactoryTest {
 		Assert.assertNotNull(unit);
 		Assert.assertEquals("Nanomolar", unit.getLabel());
 		Assert.assertEquals("nmol/dm^3", unit.getSymbol());
-		Assert.assertEquals("nM", unit.getAbbreviation());
+		Assert.assertEquals("nM", unit.getAbbreviations().get(0));
 		Assert.assertEquals(0.000001, unit.getMultiplier().getMultiplier(), 0.0000001);
 		Assert.assertEquals(0, unit.getMultiplier().getOffset(), 0.01);
-		Assert.assertEquals("http://qudt.org/schema/qudt#MolarConcentrationUnit", unit.getType().toString());
+		Assert.assertEquals("http://qudt.org/schema/qudt#MolarConcentrationUnit", unit.getTypes().get(0).toString());
 	}
 
 }

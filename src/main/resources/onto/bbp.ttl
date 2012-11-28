@@ -1,0 +1,38 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix qudt:    <http://qudt.org/schema/qudt#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix bbp:     <http://bluebrain.epfl.ch/ontology/units/> .
+
+bbp:Week
+ rdf:type qudt:TimeUnit ;
+ rdfs:label "Week"^^xsd:string ;
+ qudt:abbreviation "week"^^xsd:string ;
+ qudt:conversionMultiplier
+  604800 ;
+ qudt:conversionOffset
+  "0.0"^^xsd:double ;
+ qudt:symbol "week"^^xsd:string .
+
+bbp:Month
+ rdf:type qudt:TimeUnit ;
+ rdfs:label "Month"^^xsd:string ;
+ qudt:abbreviation "month"^^xsd:string ;
+ qudt:conversionMultiplier
+  18144000 ;
+ qudt:conversionOffset
+  "0.0"^^xsd:double ;
+ qudt:symbol "month"^^xsd:string .
+
+bbp:Year
+ rdf:type qudt:TimeUnit ;
+ rdfs:label "Year"^^xsd:string ;
+ qudt:abbreviation "year"^^xsd:string ;
+ qudt:conversionMultiplier
+  31536000 ;
+ qudt:conversionOffset
+  "0.0"^^xsd:double ;
+ qudt:symbol "year"^^xsd:string .
