@@ -1,9 +1,15 @@
 package ch.epfl.bbp.ontology.unit;
 
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.github.jqudt.Unit;
+import com.github.jqudt.onto.UnitFactory;
+import com.google.common.base.Optional;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 
 /**
  * Unit parser for the QUDT ontology
@@ -15,12 +21,34 @@ public class UnitParser {
 	private static final Pattern prefix = Pattern
 			.compile("^(?:yotta|zetta|exa|peta|tera|giga|mega|kilo|hecto|deci|centi|milli|micro|nano|pico|femto|atto|zepto|yocto|E|P|T|G|M|k|h|d|c|m|µ|n|p|f)(.*?)");
 
+	private static UnitFactory unitFactory = UnitFactory.getInstance();
+
+	private static LoadingCache<String, Optional<Unit>> unitsCache = CacheBuilder
+			.newBuilder().maximumSize(5000)
+			// .expireAfterWrite(10, TimeUnit.MINUTES)
+			// .removalListener(MY_LISTENER)
+			.build(new CacheLoader<String, Optional<Unit>>() {
+				public Optional<Unit> load(String key) throws Exception {
+					return Optional.fromNullable(uncachedParse(key));
+				}
+			});
+
+	/**
+	 * @param unitStr
+	 *            a unit given as a string
+	 * @return a {@link Unit} object grounded to the QUDT ontology
+	 * @throws ExecutionException
+	 */
+	public static Unit parse(String unitStr) throws ExecutionException {
+		return unitsCache.get(unitStr).orNull();
+	}
+
 	/**
 	 * @param unitStr
 	 *            a unit given as a string
 	 * @return a {@link Unit} object grounded to the QUDT ontology
 	 */
-	public static Unit parse(String unitStr) {
+	public static Unit uncachedParse(String unitStr) {
 
 		unitStr = unitStr.replaceAll(" per ", " / ").toLowerCase().trim();
 
@@ -50,14 +78,14 @@ public class UnitParser {
 	/** Scrolls to every's Unit label, then abreviation, then symbol */
 	private static Unit scroll(String s) {
 		Unit found = null;
-		for (Unit u : QudtUnits.ALL_UNITS) {
+		for (Unit u : unitFactory.getAllUnits()) {
 			if (u.getLabel() != null && s.equals(u.getLabel().toLowerCase())) {
 				found = u;
 			}
 		}
 
 		if (found == null) {
-			for (Unit u : QudtUnits.ALL_UNITS) {
+			for (Unit u : unitFactory.getAllUnits()) {
 				if (u.getAbbreviation() != null
 						&& s.equals(u.getAbbreviation().toLowerCase()))
 					found = u;
@@ -65,7 +93,7 @@ public class UnitParser {
 		}
 
 		if (found == null) {
-			for (Unit u : QudtUnits.ALL_UNITS) {
+			for (Unit u : unitFactory.getAllUnits()) {
 				if (u.getSymbol() != null
 						&& s.equals(u.getSymbol().toLowerCase())) {
 					found = u;
