@@ -49,8 +49,9 @@ public class UnitParser {
 	 * @return a {@link Unit} object grounded to the QUDT ontology
 	 */
 	public static Unit uncachedParse(String unitStr) {
+		//System.out.println(unitStr);
 
-		unitStr = unitStr.replaceAll(" per ", " / ").toLowerCase().trim();
+		unitStr = unitStr.replaceAll(" per ", " / ").trim();
 
 		Unit u = scroll(unitStr);
 
@@ -72,34 +73,64 @@ public class UnitParser {
 			}
 		}
 
+		// lowercase
+		if (u == null) {
+			u = scrollLowerCase(unitStr.toLowerCase());
+		}
+
 		return u;
 	}
 
-	/** Scrolls to every's Unit label, then abreviation, then symbol */
+	/** Scrolls to every's Unit label, then abbreviation, then symbol */
 	private static Unit scroll(String s) {
 		Unit found = null;
 		for (Unit u : unitFactory.getAllUnits()) {
-			if (u.getLabel() != null && s.equals(u.getLabel().toLowerCase())) {
-				found = u;
+			if (u.getLabel() != null && s.equals(u.getLabel())) {
+				return u;
 			}
 		}
 
 		if (found == null) {
 			for (Unit u : unitFactory.getAllUnits()) {
 				if (u.getAbbreviation() != null
-						&& s.equals(u.getAbbreviation().toLowerCase()))
-					found = u;
+						&& s.equals(u.getAbbreviation()))
+					return u;
 			}
 		}
 
 		if (found == null) {
 			for (Unit u : unitFactory.getAllUnits()) {
-				if (u.getSymbol() != null
-						&& s.equals(u.getSymbol().toLowerCase())) {
-					found = u;
+				if (u.getSymbol() != null && s.equals(u.getSymbol())) {
+					return u;
 				}
 			}
 		}
-		return found;
+		return null;
+	}
+	/** Scrolls to every's Unit label, then abbreviation, then symbol */
+	private static Unit scrollLowerCase(String s) {
+		Unit found = null;
+		for (Unit u : unitFactory.getAllUnits()) {
+			if (u.getLabel() != null && s.equals(u.getLabel().toLowerCase())) {
+				return u;
+			}
+		}
+		
+		if (found == null) {
+			for (Unit u : unitFactory.getAllUnits()) {
+				if (u.getAbbreviation() != null
+						&& s.equals(u.getAbbreviation().toLowerCase()))
+					return u;
+			}
+		}
+		
+		if (found == null) {
+			for (Unit u : unitFactory.getAllUnits()) {
+				if (u.getSymbol() != null && s.equals(u.getSymbol().toLowerCase())) {
+					return u;
+				}
+			}
+		}
+		return null;
 	}
 }

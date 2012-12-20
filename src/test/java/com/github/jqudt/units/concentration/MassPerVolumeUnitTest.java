@@ -13,7 +13,7 @@ import com.github.jqudt.onto.units.ConcentrationUnit;
 public class MassPerVolumeUnitTest {
 
 	@Test
-	public void test() throws IllegalArgumentException, IllegalAccessException {
+	public void test() throws Exception {
 		Quantity obs = new Quantity(0.1, ConcentrationUnit.MICROGRAM_PER_MILLILITER);
 		Quantity obs2 =  obs.convertTo(ConcentrationUnit.PICOGRAM_PER_MILLILITER);
 		Assert.assertEquals(ConcentrationUnit.PICOGRAM_PER_MILLILITER, obs2.getUnit());

@@ -13,7 +13,7 @@ import com.github.jqudt.onto.units.TemperatureUnit;
 public class FahrenheitTest {
 
 	@Test
-	public void testTwentyDegrees() throws IllegalArgumentException, IllegalAccessException {
+	public void testTwentyDegrees() throws Exception {
 		Quantity temp = new Quantity(20, TemperatureUnit.CELSIUS);
 		Quantity temp2 = temp.convertTo(TemperatureUnit.FAHRENHEIT);
 		Assert.assertEquals(TemperatureUnit.FAHRENHEIT, temp2.getUnit());
@@ -21,7 +21,7 @@ public class FahrenheitTest {
 	}
 
 	@Test
-	public void testMinusTwenty() throws IllegalArgumentException, IllegalAccessException {
+	public void testMinusTwenty() throws Exception {
 		Quantity temp = new Quantity(-20, TemperatureUnit.CELSIUS);
 		Quantity temp2 = temp.convertTo(TemperatureUnit.FAHRENHEIT);
 		Assert.assertEquals(TemperatureUnit.FAHRENHEIT, temp2.getUnit());

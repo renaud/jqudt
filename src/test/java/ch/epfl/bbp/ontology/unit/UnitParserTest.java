@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import org.junit.Test;
 
 import com.github.jqudt.Unit;
+import com.google.common.collect.Lists;
 
 public class UnitParserTest {
 
@@ -27,6 +28,11 @@ public class UnitParserTest {
 
 			String unitStr = line.split("\t")[0];
 			int cnt = Integer.parseInt(line.split("\t")[1]);
+
+			// stoplist
+			if (Lists.newArrayList("NULL").contains(unitStr)) {
+				continue;
+			}
 
 			Unit found = UnitParser.parse(unitStr);
 

@@ -104,14 +104,13 @@ public class UnitFactory {
 		while (res.hasNext()) {
 			BindingSet bs = res.next();
 			Iterator<Binding> bindIt = bs.iterator();
+			Unit unit = new Unit();
+			Multiplier multiplier = new Multiplier();
 			while (bindIt.hasNext()) {
 				Binding binding = bindIt.next();
 				String name = binding.getName();
 				Value val = binding.getValue();
 				// System.out.println(name + "\t" + val);
-
-				Unit unit = new Unit();
-				Multiplier multiplier = new Multiplier();
 
 				if (name.equals("s")) {
 					unit.setResource(new URI(val.stringValue()));
@@ -137,10 +136,9 @@ public class UnitFactory {
 					throw new MalformedQueryException("found bizare binding: "
 							+ binding);
 				}
-				unit.setMultiplier(multiplier);
-
-				ALL_UNITS.add(unit);
 			}
+			unit.setMultiplier(multiplier);
+			ALL_UNITS.add(unit);
 		}
 	}
 

@@ -90,6 +90,15 @@ bbp:InternationalUnitPerLiter
  qudt:conversionOffset "0.0"^^xsd:double ;
  qudt:symbol "U/L"^^xsd:string .
 
+bbp:Micromolar
+ rdf:type qudt:MolarConcentrationUnit , qudt:SIDerivedUnit ;
+ rdfs:label "Micromolar"^^xsd:string ;
+ qudt:abbreviation "microM"^^xsd:string ;
+ qudt:conversionMultiplier
+  0.001 ;
+ qudt:conversionOffset
+  "0.0"^^xsd:double ; 
+ qudt:symbol "micromol/dm^3"^^xsd:string .
 
 # ADDITIONAL UNITS ##################################################
 
